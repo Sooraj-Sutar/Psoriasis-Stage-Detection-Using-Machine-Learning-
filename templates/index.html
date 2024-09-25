@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SKIN DISEASE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+        color: white;
+      }
+      input[type=submit], input[type=file]{
+        /* width: 50%; */
+        border:1px solid #ffffff;
+        color: white;
+        background-color: transparent;
+        /* padding:14px 0; */
+        margin: 8px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type=submit]{
+        border:1px solid #ffffff;
+      }
+      input[type=submit]:hover{
+        background-color: #00BFFF;
+        color: black;
+      }
+      h3{
+        border-bottom:1px solid #ffffff;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+    </style>
+</head>
+<!-- <body style="background-image: url('static/leaf.jpeg');"> -->
+  <body>
+  <!-- <center> -->
+    <div class="container">
+      <h1 style="padding-top: 50px; text-align: center;">SKIN DISEASE PREDICTION</h1>
+    <div class="row">
+      <div class="col-sm-3">
+  <h3>CNN</h3>
+
+        <form action="{{url_for('cnn')}}" method="POST" style="display: flex;">          
+          <input type="file" id="file" name="filename" required>
+          <input type="submit" value="Analyse">
+        </form> 
+</div>
+<div class=col-sm-3>
+<h3>Select Image</h3>
+
+      {% if (ImageDisplay) %}
+      <img src="{{ImageDisplay}}" width="100%">
+      {% endif %}
+ </div>
+<div class=col-sm-3>
+<h3>Graph</h3>
+
+      {% if (ImageDisplay1) %}
+      <img src="{{ImageDisplay1}}" width="100%">
+      {% endif %}
+ </div>
+<div class=col-sm-3>
+<h3>Result</h3>
+
+      {% if (status) %}
+              <p><b>Status: </b>{{status}}</p>
+              {% endif %}
+              {% if (accuracy) %}
+              <p><b>Accuracy: </b>{{accuracy}}</p>
+              {% endif %}
+    </div>
+    
+  </div>
+
+<!-- </center> -->
+</body>
+</html>
